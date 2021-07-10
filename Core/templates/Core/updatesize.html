@@ -1,0 +1,29 @@
+{% extends "Core/base.html" %}
+
+{% block title %}
+<title>Sizes</title>
+{% endblock title %}
+
+{% block main %}
+<main class="container">
+    <h1 class="mt-5 mb-3">Update Sizes</h1>
+    <form class="text-center form-group" method="POST" NOVALIDATE>
+        {% csrf_token %}
+        <div class="row">
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.category_id.label_tag }}
+                </div>
+                {{ form.category_id }} <span class="text-danger">{{ form.category_id.errors | striptags }}</span>
+            </div>
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.size.label_tag }}
+                </div>
+                {{ form.size }} <span class="text-danger">{{ form.size.errors | striptags }}</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</main>
+{% endblock main %}

@@ -1,0 +1,29 @@
+{% extends "Core/base.html" %}
+
+{% block title %}
+<title>Product Images</title>
+{% endblock title %}
+
+{% block main %}
+<main class="container">
+    <h1 class="mt-5 mb-3">Update Product Image</h1>
+    <form class="text-center form-group" method="POST" enctype="multipart/form-data" NOVALIDATE>
+        {% csrf_token %}
+        <div class="row">
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.product_id.label_tag }}
+                </div>
+                {{ form.product_id }} <span class="text-danger">{{ form.product_id.errors | striptags }}</span>
+            </div>
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.image.label_tag }}
+                </div>
+                {{ form.image }} <span class="text-danger">{{ form.image.errors | striptags }}</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</main>
+{% endblock main %}

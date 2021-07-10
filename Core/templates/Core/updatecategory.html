@@ -1,0 +1,18 @@
+{% extends "Core/base.html" %}
+
+{% block title %}
+<title>Categories</title>
+{% endblock title %}
+
+{% block main %}
+<main class="container">
+    <h1 class="mt-5 mb-3">Update Category</h1>
+    <form class="text-center form-group" method="POST" NOVALIDATE>
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.name }} <span class="text-danger">{{ form.name.errors | striptags }}</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</main>
+{% endblock main %}

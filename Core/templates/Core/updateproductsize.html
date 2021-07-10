@@ -1,0 +1,41 @@
+{% extends "Core/base.html" %}
+
+{% block title %}
+<title>Product Sizes</title>
+{% endblock title %}
+
+{% block main %}
+<main class="container">
+    <h1 class="mt-5 mb-3">Update Product Sizes</h1>
+    <form class="text-center form-group" method="POST" NOVALIDATE>
+        {% csrf_token %}
+        <div class="row">
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.product_id.label_tag }}
+                </div>
+                {{ form.product_id }} <span class="text-danger">{{ form.product_id.errors | striptags }}</span>
+            </div>
+            <div class="mb-3 col-lg-6 col-sm-12">
+                <div class="label">
+                    {{ form.size_id.label_tag }}
+                </div>
+                {{ form.size_id }} <span class="text-danger">{{ form.size_id.errors | striptags }}</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</main>
+{% endblock main %}
+
+{% block script %}
+<script>
+    const ul = document.getElementById("id_size_id");
+    ul.classList.add("form-check");
+
+    const input = document.querySelectorAll("input[type='checkbox']");
+    for (let inp of input) {
+        inp.classList.add("form-check-input");
+    }
+</script>
+{% endblock script %}
